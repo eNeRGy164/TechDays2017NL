@@ -26,5 +26,5 @@ Remove-AzureRmRoleAssignment -ObjectId $vaultPrincipalId -Scope $storageId `
 
 Get-AzureRmKeyVault -VaultName $vaultName `
            | Select -ExpandProperty AccessPolicies `
-           | ? { $_.DisplayName -like 'TechDays*' } `
+           | ? { $_.DisplayName -like 'YOUR-AZURE-AD-APP-NAME*' } `
            | Remove-AzureRmKeyVaultAccessPolicy -VaultName $vaultName
