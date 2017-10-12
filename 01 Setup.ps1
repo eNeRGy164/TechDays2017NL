@@ -1,4 +1,4 @@
-﻿Login-AzureRmAccount -Subscription "cb036093-4069-4295-bb97-b899a41b6953"
+﻿Login-AzureRmAccount -Subscription "YOUR-SUBSCRIPTION-ID"
 
 # Setup
 $vaultName = "loremipsum"
