@@ -1,7 +1,7 @@
 clear
 
 # Get the Azure AD app
-$application = Get-AzureRmADApplication -DisplayNameStartWith "TechDays"
+$application = Get-AzureRmADApplication -DisplayNameStartWith "YOUR-AZURE-AD-APP-NAME"
 $applicationId = $application.ApplicationId
 
 # Current App Credentials
@@ -15,10 +15,10 @@ $webapp.SiteConfig.AppSettings | % { $appSettings[$_.Name] = $_.Value }
 
 $appSettings["KeyVault.Url"] = "https://$vaultName.vault.azure.net/"
 $appSettings["KeyVault.ClientId"] = "$applicationId"
-$appSettings["KeyVault.ClientSecret"] = "DuUTJ7EVFIH4jiNhjh/JvbWNaUyjnT+QXHBBjb8LiEo="
+$appSettings["KeyVault.ClientSecret"] = "YOUR-GENERATED-KEY"
 
 $webapp = Set-AzureRmWebApp -Name $webAppName -ResourceGroupName $webAppResourceGroup `
-                            -AppSettings $appSettings
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â           -AppSettings $appSettings
 
 
 
@@ -80,4 +80,4 @@ $appSettings["WEBSITE_LOAD_CERTIFICATES"] = $cer.Thumbprint
 $appSettings["KeyVault.Thumbprint"] = $cer.Thumbprint
 
 $webapp = Set-AzureRmWebApp -Name $webAppName -ResourceGroupName $webAppResourceGroup `
-                            -AppSettings $appSettings
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â           -AppSettings $appSettings
